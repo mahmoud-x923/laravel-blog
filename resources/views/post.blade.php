@@ -1,23 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-layout>
+    <x-slot name="header">
+        <h1>My Blog</h1>
+    </x-slot>
+    <x-slot name="content">
+        <article>
+            <h1>
+                {{ $post->title }}
+            </h1>
 
-<head>
-    <title>Post</title>
-    <link rel="stylesheet" href="/style.css">
-</head>
+            <div>
+                {!! $post->body !!}
+            </div>
 
-<body>
-    <article>
-        <h1>
-            <?= $post->title; ?>
-        </h1>
-
-        <div>
-            <?= $post->body; ?>
-        </div>
-
-        <a href="/">GO Back</a>
-    </article>
-</body>
-
-</html>
+            <a href="/">GO Back</a>`
+        </article>
+    </x-slot>
+</x-layout>

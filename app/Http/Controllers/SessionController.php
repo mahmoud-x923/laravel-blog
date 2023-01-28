@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Http\Request;
+
 use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller

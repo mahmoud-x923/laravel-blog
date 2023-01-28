@@ -2,33 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     width: 800px;
     margin: auto;
     font-family: "Nunito", sans-serif;
-}
-
-h1 {
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-article + article {
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-    margin-top: 40px;
-}
-
-article a {
-    display: inline-block;
-    margin-top: 30px;
-}
-
-article:last-child {
-    margin-bottom: 30px;
-}
-p {
-    line-height: 1.5;
 }

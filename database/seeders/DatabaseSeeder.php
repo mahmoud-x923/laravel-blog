@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use \App\Models\User;
 use \App\Models\Post;
 use App\Models\Category;
+use App\Models\Comment;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,5 +25,6 @@ class DatabaseSeeder extends Seeder
         Category::factory(2)->create();
 
         Post::factory(30)->create(['user_id' => $user->id, 'category_id' => $category->id]);
+        Comment::factory(3)->create(['post_id' => Post::latest()->first()->id]);
     }
 }

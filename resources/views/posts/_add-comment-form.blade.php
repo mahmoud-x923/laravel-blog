@@ -1,4 +1,4 @@
-<x-panale>
+<x-panel>
     @auth
         <form action="/posts/{{ $post->slug }}/comments" method="POST">
             @csrf
@@ -32,4 +32,4 @@
             comment.
         </p>
     @endauth
-</x-panale>
+</x-panel>

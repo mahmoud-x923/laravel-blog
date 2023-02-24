@@ -24,14 +24,32 @@
             </div>
 
             <div class="flex gap-4 items-center md:mt-0 mt-8">
-                <a href="/" class="text-xs font-bold uppercase">Home</a>
                 @auth
-                    <span href="/logout" class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}</span>
+                    <x-dropdown>
+                        <x-slot name="trigger">
+                            <button name="trigger" class="text-xs font-bold uppercase">Welcome,
+                                {{ auth()->user()->name }}</button>
+                        </x-slot>
 
-                    <form action="/logout" method="POST">
-                        @csrf
-                        <button type="submit" class="text-xs font-bold uppercase">Logout</button>
-                    </form>
+                        @admin
+                            <x-dropdown-item href="/admin/posts" active="{{ request()->is('admin/posts') ? true : false }}">
+                                Dashboard
+                            </x-dropdown-item>
+                            <x-dropdown-item href="/admin/posts/create"
+                                active="{{ request()->is('admin/posts/create') ? true : false }}">
+                                New Post
+                            </x-dropdown-item>
+                        @endadmin
+
+                        <x-dropdown-item href="#" x-data="{}"
+                            @click.prevent="document.querySelector('#logout-form').submit()">
+                            Logout
+                        </x-dropdown-item>
+
+                        <form id="logout-form"action="/logout" method="POST" class="hidden">
+                            @csrf
+                        </form>
+                    </x-dropdown>
                 @else
                     <a href="/register" class="text-xs font-bold uppercase">Register</a>
                     <a href="/login" class="text-xs font-bold uppercase">Log In</a>
@@ -59,11 +77,12 @@
                     <form method="POST" action="/newsletter" class="lg:flex text-sm">
                         @csrf
                         <div class="lg:py-3 lg:px-5 flex items-center">
-                            <label for="email" class="hidden lg:inline-block">
+                            <label for="email-newsletter" class="hidden lg:inline-block">
                                 <img src="/images/mailbox-icon.svg" alt="mailbox letter">
                             </label>
 
-                            <input id="email" name="email" type="text" placeholder="Your email address"
+                            <input id="email-newsletter" name="email-newsletter" type="text"
+                                placeholder="Your email address"
                                 class="lg:bg-transparent py-2 lg:py-0 pl-4 focus-within:outline-none">
                         </div>
 
@@ -74,7 +93,7 @@
                         </button>
                     </form>
                 </div>
-                @error('email')
+                @error('email-newsletter')
                     <p class="text-red-500 text-xs mt-1"> * {{ $message }} </p>
                 @enderror
             </div>

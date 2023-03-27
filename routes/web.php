@@ -4,7 +4,7 @@ use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\sessionController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 

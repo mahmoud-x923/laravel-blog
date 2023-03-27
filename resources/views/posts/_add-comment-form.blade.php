@@ -20,9 +20,9 @@
             </div>
 
             <div class="flex justify-end lg:mt-5">
-                <x-button-primary :type="'submit'">
+                <x-form.button-primary :type="'submit'">
                     post
-                </x-button-primary>
+                </x-form.button-primary>
             </div>
         </form>
     @else
